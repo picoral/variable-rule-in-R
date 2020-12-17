@@ -2254,9 +2254,66 @@ that_per_indiv &lt;- that_data %&gt;%
                        age,
                        occ,
                        edu))</code></pre>
-<p>Here’s what the resulting data looks like. Note that we went from the original data frame that had 1872 observations (i.e., tokens) to an aggregate data frame by individual with 31 observations for omission of that complementizer. By aggregating the data by individual to create a numeric dependent variable, we are decreasing our statistical power and loosing the context of each occurrence of that complement occurrence.</p>
-<div id="htmlwidget-9a3f8957a3462212d134" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-9a3f8957a3462212d134">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"dep_var":["that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_omitted","that_expressed","that_omitted"],"indiv":["acork","acork","bhamilton","bhamilton","cbeale","cbeale","cbeckett","cbeckett","cgiles","cgiles","conniebeale","conniebeale","dburns","dburns","ddavis","ddavis","dwallis","dwallis","eburritt","eburritt","echapman","echapman","ggreen","ggreen","hbutton","hbutton","hstainton","hstainton","jtweddle","jtweddle","kyoung","kyoung","lmcgrath","lmcgrath","mjohnstone","mjohnstone","mlondry","mlondry","mpeters","mpeters","mtoovey","mtoovey","nbond","nbond","ocavell","ocavell","rbeale","rbeale","rcotton","rcotton","rjones","rjones","rmitchell","rmitchell","sboggin","sevans","sevans","swatkins","swatkins","vpriestly","wevans","wevans"],"n":[11,21,2,26,6,13,11,51,4,48,9,57,23,125,3,54,5,17,6,38,29,105,11,75,12,32,3,38,3,12,30,70,5,39,7,8,10,38,6,49,13,47,39,128,12,23,1,4,23,100,24,43,2,49,24,51,56,9,23,15,25,49],"total":[32,32,28,28,19,19,62,62,52,52,66,66,148,148,57,57,22,22,44,44,134,134,86,86,44,44,41,41,15,15,100,100,44,44,15,15,48,48,55,55,60,60,167,167,35,35,5,5,123,123,67,67,51,51,24,107,107,32,32,15,74,74],"norm_freq":[34.38,65.62,7.14,92.86,31.58,68.42,17.74,82.26,7.69,92.31,13.64,86.36,15.54,84.46,5.26,94.74,22.73,77.27,13.64,86.36,21.64,78.36,12.79,87.21,27.27,72.73,7.32,92.68,20,80,30,70,11.36,88.64,46.67,53.33,20.83,79.17,10.91,89.09,21.67,78.33,23.35,76.65,34.29,65.71,20,80,18.7,81.3,35.82,64.18,3.92,96.08,100,47.66,52.34,28.12,71.88,100,33.78,66.22],"sex":["F","F","M","M","M","M","M","M","M","M","F","F","M","M","M","M","M","M","F","F","F","F","F","F","M","M","M","M","M","M","F","F","F","F","M","M","F","F","F","F","M","M","F","F","M","M","M","M","F","F","M","M","M","M","F","F","F","M","M","M","M","M"],"age_3way":["Older (66+)","Older (66+)","Older (66+)","Older (66+)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Younger (under 35)","Younger (under 35)","Older (66+)","Older (66+)","Older (66+)","Older (66+)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Older (66+)","Older (66+)","Middle (36-65)","Middle (36-65)","Older (66+)","Older (66+)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Older (66+)","Older (66+)","Middle (36-65)","Middle (36-65)","Younger (under 35)","Younger (under 35)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Younger (under 35)","Younger (under 35)","Middle (36-65)","Middle (36-65)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Older (66+)","Older (66+)","Middle (36-65)","Middle (36-65)","Older (66+)","Older (66+)","Older (66+)"],"age":[76,76,91,91,30,30,29,29,20,20,48,48,60,60,19,19,72,72,82,82,55,55,45,45,68,68,59,59,78,78,30,30,27,27,53,53,62,62,81,81,40,40,34,34,40,40,52,52,34,34,50,50,20,20,23,69,69,37,37,84,72,72],"occ":["White-Collar","White-Collar","Blue-Collar","Blue-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","White-Collar","White-Collar","Blue-Collar","White-Collar","White-Collar"],"edu":["Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","Up to minimum age","Up to minimum age","More than minimum age","More than minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","More than minimum age","More than minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","More than minimum age","More than minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","Up to minimum age","Up to minimum age","Up to minimum age"]},"columns":[{"accessor":"dep_var","name":"dep_var","type":"character"},{"accessor":"indiv","name":"indiv","type":"character"},{"accessor":"n","name":"n","type":"numeric"},{"accessor":"total","name":"total","type":"numeric"},{"accessor":"norm_freq","name":"norm_freq","type":"numeric"},{"accessor":"sex","name":"sex","type":"character"},{"accessor":"age_3way","name":"age_3way","type":"character"},{"accessor":"age","name":"age","type":"numeric"},{"accessor":"occ","name":"occ","type":"character"},{"accessor":"edu","name":"edu","type":"character"}],"defaultPageSize":6,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"92ccf8359cc2c01a8d8e474f4df0a020","key":"92ccf8359cc2c01a8d8e474f4df0a020"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<p>When collapsing data, we have to ensure we have all the data we need. Each individual should have two rows: one observation (or row) for percentage of that_omitted and another for percentage that_expressed. Zeros are usually omitted from the data aggregation we did above, because there are no rows for a variant for certain individuals. We have to ensure the zeros are represented as well (zero omission is as important as 100 omission when it comes to analyzing your data).</p>
+<pre class="r"><code># each individual should have two rows (one for that_omitted and another for that_expressed)
+# count rows by individual, show lowest n first
+that_per_indiv %&gt;% 
+  count(indiv) %&gt;% 
+  arrange(n)</code></pre>
+<pre><code>## # A tibble: 32 x 2
+##    indiv           n
+##    &lt;chr&gt;       &lt;int&gt;
+##  1 sboggin         1
+##  2 vpriestly       1
+##  3 acork           2
+##  4 bhamilton       2
+##  5 cbeale          2
+##  6 cbeckett        2
+##  7 cgiles          2
+##  8 conniebeale     2
+##  9 dburns          2
+## 10 ddavis          2
+## # … with 22 more rows</code></pre>
+<pre class="r"><code># inspect two individuals with just one row each
+that_per_indiv %&gt;% 
+  filter(indiv %in% c(&quot;sboggin&quot;, &quot;vpriestly&quot;))</code></pre>
+<pre><code>## # A tibble: 2 x 10
+##   dep_var   indiv      n total norm_freq sex   age_3way      age occ    edu     
+##   &lt;chr&gt;     &lt;chr&gt;  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   
+## 1 that_omi… sbogg…    24    24       100 F     Younger (u…    23 Blue-… More th…
+## 2 that_omi… vprie…    15    15       100 M     Older (66+)    84 Blue-… Up to m…</code></pre>
+<p>As suspected, two individuals have 100% of <em>that omission</em>. Since we will focus only on that omission, we could proceed with the data frame as is. I like to ensure my data frame is complete before proceeding, just in case I decide to change my analysis in the future and focus on that expressed instead (you really never know, so better to be safe). Besides, zeros are data too! I hope I convinced you to do this next step to complete your aggregate data.</p>
+<pre class="r"><code># run the same aggregation as before but add complete() and mutate() to
+# complete data with missing combinations of individual and variant
+that_per_indiv &lt;- that_data %&gt;%
+  count(dep_var, indiv) %&gt;%
+  complete(dep_var, indiv) %&gt;%
+  mutate(n = replace_na(n, 0)) %&gt;%
+  left_join(that_data %&gt;%
+              count(indiv) %&gt;%
+              rename(total = n)) %&gt;%
+  mutate(norm_freq = (n/total)*100) %&gt;%
+  left_join(that_data %&gt;%
+              distinct(indiv,
+                       sex,
+                       age_3way,
+                       age,
+                       occ,
+                       edu))
+
+# inspect same two individuals to verify rows have been completed
+that_per_indiv %&gt;% 
+  filter(indiv %in% c(&quot;sboggin&quot;, &quot;vpriestly&quot;))</code></pre>
+<pre><code>## # A tibble: 4 x 10
+##   dep_var   indiv      n total norm_freq sex   age_3way      age occ    edu     
+##   &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;int&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   
+## 1 that_exp… sbogg…     0    24         0 F     Younger (u…    23 Blue-… More th…
+## 2 that_exp… vprie…     0    15         0 M     Older (66+)    84 Blue-… Up to m…
+## 3 that_omi… sbogg…    24    24       100 F     Younger (u…    23 Blue-… More th…
+## 4 that_omi… vprie…    15    15       100 M     Older (66+)    84 Blue-… Up to m…</code></pre>
+<p>Here’s what the resulting data looks like. Note that we went from the original data frame that had 1872 observations (i.e., tokens) to an aggregate data frame by individual with 32 observations for omission of that complementizer. By aggregating the data by individual to create a numeric dependent variable, we are decreasing our statistical power and loosing the context of each occurrence of that complement occurrence.</p>
+<div id="htmlwidget-0ea078df8a242fe7c587" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-0ea078df8a242fe7c587">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"dep_var":["that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted"],"indiv":["acork","acork","bhamilton","bhamilton","cbeale","cbeale","cbeckett","cbeckett","cgiles","cgiles","conniebeale","conniebeale","dburns","dburns","ddavis","ddavis","dwallis","dwallis","eburritt","eburritt","echapman","echapman","ggreen","ggreen","hbutton","hbutton","hstainton","hstainton","jtweddle","jtweddle","kyoung","kyoung","lmcgrath","lmcgrath","mjohnstone","mjohnstone","mlondry","mlondry","mpeters","mpeters","mtoovey","mtoovey","nbond","nbond","ocavell","ocavell","rbeale","rbeale","rcotton","rcotton","rjones","rjones","rmitchell","rmitchell","sboggin","sboggin","sevans","sevans","swatkins","swatkins","vpriestly","vpriestly","wevans","wevans"],"n":[11,21,2,26,6,13,11,51,4,48,9,57,23,125,3,54,5,17,6,38,29,105,11,75,12,32,3,38,3,12,30,70,5,39,7,8,10,38,6,49,13,47,39,128,12,23,1,4,23,100,24,43,2,49,0,24,51,56,9,23,0,15,25,49],"total":[32,32,28,28,19,19,62,62,52,52,66,66,148,148,57,57,22,22,44,44,134,134,86,86,44,44,41,41,15,15,100,100,44,44,15,15,48,48,55,55,60,60,167,167,35,35,5,5,123,123,67,67,51,51,24,24,107,107,32,32,15,15,74,74],"norm_freq":[34.38,65.62,7.14,92.86,31.58,68.42,17.74,82.26,7.69,92.31,13.64,86.36,15.54,84.46,5.26,94.74,22.73,77.27,13.64,86.36,21.64,78.36,12.79,87.21,27.27,72.73,7.32,92.68,20,80,30,70,11.36,88.64,46.67,53.33,20.83,79.17,10.91,89.09,21.67,78.33,23.35,76.65,34.29,65.71,20,80,18.7,81.3,35.82,64.18,3.92,96.08,0,100,47.66,52.34,28.12,71.88,0,100,33.78,66.22],"sex":["F","F","M","M","M","M","M","M","M","M","F","F","M","M","M","M","M","M","F","F","F","F","F","F","M","M","M","M","M","M","F","F","F","F","M","M","F","F","F","F","M","M","F","F","M","M","M","M","F","F","M","M","M","M","F","F","F","F","M","M","M","M","M","M"],"age_3way":["Older (66+)","Older (66+)","Older (66+)","Older (66+)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Younger (under 35)","Younger (under 35)","Older (66+)","Older (66+)","Older (66+)","Older (66+)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Older (66+)","Older (66+)","Middle (36-65)","Middle (36-65)","Older (66+)","Older (66+)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Older (66+)","Older (66+)","Middle (36-65)","Middle (36-65)","Younger (under 35)","Younger (under 35)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Younger (under 35)","Younger (under 35)","Middle (36-65)","Middle (36-65)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Older (66+)","Older (66+)","Middle (36-65)","Middle (36-65)","Older (66+)","Older (66+)","Older (66+)","Older (66+)"],"age":[76,76,91,91,30,30,29,29,20,20,48,48,60,60,19,19,72,72,82,82,55,55,45,45,68,68,59,59,78,78,30,30,27,27,53,53,62,62,81,81,40,40,34,34,40,40,52,52,34,34,50,50,20,20,23,23,69,69,37,37,84,84,72,72],"occ":["White-Collar","White-Collar","Blue-Collar","Blue-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar"],"edu":["Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","Up to minimum age","Up to minimum age","More than minimum age","More than minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","More than minimum age","More than minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","More than minimum age","More than minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age"]},"columns":[{"accessor":"dep_var","name":"dep_var","type":"character"},{"accessor":"indiv","name":"indiv","type":"character"},{"accessor":"n","name":"n","type":"numeric"},{"accessor":"total","name":"total","type":"numeric"},{"accessor":"norm_freq","name":"norm_freq","type":"numeric"},{"accessor":"sex","name":"sex","type":"character"},{"accessor":"age_3way","name":"age_3way","type":"character"},{"accessor":"age","name":"age","type":"numeric"},{"accessor":"occ","name":"occ","type":"character"},{"accessor":"edu","name":"edu","type":"character"}],"defaultPageSize":6,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"bd9b8cdd6590d9b3df83c0ebd4480e30","key":"bd9b8cdd6590d9b3df83c0ebd4480e30"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 <p>Let’s visualize the data by individual ordered by normalized frequency of that omission. I will add occupation as the color, to verify whether occupation is split in terms of normalized frequency of that omission.</p>
 <pre class="r"><code># start with aggregate data and then
 # filter to keep just that omitted and then
@@ -2378,7 +2435,7 @@ lin_reg_model</code></pre>
 ## Multiple R-squared:  0.2722, Adjusted R-squared:  0.1644 
 ## F-statistic: 2.525 on 4 and 27 DF,  p-value: 0.0641</code></pre>
 <p>The linear regression model above explains 16% of the variation in the data. The estimate normalized frequency of <em>that omission</em> for female younger (under 35) blue-collar participants (i.e., our intercept) is of 92.98. The average difference in the mean of normalized frequency for <em>that omission</em> between younger (under 35) and middle age (36-55) participants is of -7.09 (holding everything else constant), but the difference is not significant. The average difference in the mean of normalized frequency for <em>that omission</em> between younger (under 35) and older (66+) participants is of -6.56 (holding everything else constant), but the difference is not significant. The average difference in the mean of normalized frequency for <em>that omission</em> between female and male participants is of -2.32 (holding everything else constant), but the difference is not significant. The only actual significant difference is between blue- and white-collar workers with white-collar workers’ mean of normalized frequency for <em>that omission</em> being -11.31 (lower) than blue-collar workers (holding everything else constant).</p>
-<p>As seen in <a href="#fig:fig3">4.3</a>, there are interactions across independent variables (lines are not parallel), but with only 31 data points, we do not have enough statistical power to compute interactions.</p>
+<p>As seen in <a href="#fig:fig3">4.3</a>, there are interactions across independent variables (lines are not parallel), but with only 32 data points, we do not have enough statistical power to compute interactions.</p>
 <p>As discussed in these results, the contrasts for all independent variables are set for <em>treatment contrast</em>, which is the default in R. We can check the contrasts with the code below.</p>
 <pre class="r"><code>that_per_indiv %&gt;%
   mutate(sex = factor(sex)) %&gt;%
@@ -3044,7 +3101,7 @@ last_results &lt;- data.frame(logit = all_estimates_logit_2,
            probability = logit2prob(intercept_estimate_4))) %&gt;%
   mutate(factor_level = c(&quot;White-Collar&quot;, 
                           &quot;Blue-Collar&quot;,
-                          &quot;Input&quot;)) %&gt;%
+                          &quot;Everyone&quot;)) %&gt;%
   select(factor_level, logit, probability)
 
 # print our estimates in a nice table
@@ -3070,15 +3127,16 @@ last_results %&gt;%
 <td align="right">0.89</td>
 </tr>
 <tr class="odd">
-<td align="left">Input</td>
+<td align="left">Everyone</td>
 <td align="right">1.64</td>
 <td align="right">0.84</td>
 </tr>
 </tbody>
 </table>
-<p>The results in the table above are the same as before when we did the same calculation of estimates by multiplying contrasts by coefficients and adding the intercept (as they should be).</p>
-<p>Finally, to calculate factor weights, which are traditionally reported in language variation and change.</p>
+<p>The results in the table above for the individual factor group levels are the same as before when we did the same calculation of estimates by multiplying contrasts by coefficients and adding the intercept (as they should be). With sum contrasts we can add to our table information about our intercept, which is the overall probability of <em>that omission</em> for the community as a whole.</p>
+<p>Finally, to calculate factor weights, which are traditionally reported in language variation and change, you also multiply your contrasts by the coefficients that are not the intercept.</p>
 <pre class="r"><code># factor weights are calculated by multiplying our second coefficient by our contrasts 
+# the second coefficient is the one that is not the intercept
 factor_weights_logit &lt;- coeffs_occ_4[2]*contrasts_occ_4
 
 # convert logit to probabilities
@@ -3107,10 +3165,663 @@ factor_weights_prob %&gt;%
 </tr>
 </tbody>
 </table>
+<p>The factor weights represent the distance from the group average for each factor group level. In a random binary situation (e.g., a coin flip) our random chance is .5 (or 50/50, because heads and tails have the same chance to occur). We know that language choice is not random, so sum contrasts allow us to calculate the group estimate so we can use it as our adjusted “random chance” baseline. The factor weights reveal how far from this group baseline (our “new” 50/50 chance) our different levels are.</p>
+<p>Language variation is rarely examined with only one factor group, however. So in the next section I will demonstrate a complete analysis.</p>
 </div>
 <div id="factor-weights-for-linguistic-variables" class="section level2">
 <h2><span class="header-section-number">4.3</span> Factor Weights for Linguistic Variables</h2>
-<p>Here’s a final demonstration on how to run a complete multivariate mixed-effect logistic regression outputting factor weights.</p>
+<p>Here’s a final demonstration on how to run a complete multivariate mixed-effect logistic regression outputting factor weights. I’m going to include in the model the variables in Tagliamonte’s book <span class="citation">(Tagliamonte 2012, 39:126)</span> since the goal here is to replicate in R the results Tagliamonte got in <em>Godlvarb</em>. Results will be slightly different because I’m running individual as a random effect.</p>
+<p>First step is to set all factor groups to be added to our regression model (i.e., verbs_1, matrix_subj, add_elm, sub_subj, int_mat, tense – Tagliamonte’s book <span class="citation">(Tagliamonte 2012, 39:126)</span> for an explanation of these) to actual factors that are set for sum contrasts.</p>
+<pre class="r"><code># all variables should be set actual factors -- use factor()
+that_data &lt;- that_data %&gt;%
+  mutate(verbs_1 = factor(verbs_1),
+         matrix_subj = factor(matrix_subj),
+         add_elm = factor(add_elm),
+         sub_subj = factor(sub_subj),
+         tense = factor(tense),
+         int_mat = factor(int_mat))
+
+# let&#39;s check contrasts before we change them
+contrasts(that_data$verbs_1)</code></pre>
+<pre><code>##       OTHER Say Think
+## Know      0   0     0
+## OTHER     1   0     0
+## Say       0   1     0
+## Think     0   0     1</code></pre>
+<pre class="r"><code>contrasts(that_data$matrix_subj)</code></pre>
+<pre><code>##                       Noun Phrase Other Pronoun
+## First Person Singular           0             0
+## Noun Phrase                     1             0
+## Other Pronoun                   0             1</code></pre>
+<pre class="r"><code>contrasts(that_data$add_elm)</code></pre>
+<pre><code>##           Something
+## Nothing           0
+## Something         1</code></pre>
+<pre class="r"><code>contrasts(that_data$sub_subj)</code></pre>
+<pre><code>##                  Personal Pronoun
+## Other                           0
+## Personal Pronoun                1</code></pre>
+<pre class="r"><code>contrasts(that_data$tense)</code></pre>
+<pre><code>##         Present
+## Past          0
+## Present       1</code></pre>
+<pre class="r"><code>contrasts(that_data$int_mat)</code></pre>
+<pre><code>##      Some
+## None    0
+## Some    1</code></pre>
+<pre class="r"><code># now we set factors to be in sum contrasts
+contrasts(that_data$verbs_1) &lt;- contr.sum
+contrasts(that_data$matrix_subj) &lt;- contr.sum
+contrasts(that_data$add_elm) &lt;- contr.sum
+contrasts(that_data$sub_subj) &lt;- contr.sum
+contrasts(that_data$tense) &lt;- contr.sum
+contrasts(that_data$int_mat) &lt;- contr.sum
+
+# check contrasts after the change
+contrasts(that_data$verbs_1)</code></pre>
+<pre><code>##       [,1] [,2] [,3]
+## Know     1    0    0
+## OTHER    0    1    0
+## Say      0    0    1
+## Think   -1   -1   -1</code></pre>
+<pre class="r"><code>contrasts(that_data$matrix_subj)</code></pre>
+<pre><code>##                       [,1] [,2]
+## First Person Singular    1    0
+## Noun Phrase              0    1
+## Other Pronoun           -1   -1</code></pre>
+<pre class="r"><code>contrasts(that_data$add_elm)</code></pre>
+<pre><code>##           [,1]
+## Nothing      1
+## Something   -1</code></pre>
+<pre class="r"><code>contrasts(that_data$sub_subj)</code></pre>
+<pre><code>##                  [,1]
+## Other               1
+## Personal Pronoun   -1</code></pre>
+<pre class="r"><code>contrasts(that_data$tense)</code></pre>
+<pre><code>##         [,1]
+## Past       1
+## Present   -1</code></pre>
+<pre class="r"><code>contrasts(that_data$int_mat)</code></pre>
+<pre><code>##      [,1]
+## None    1
+## Some   -1</code></pre>
+<p>You will notice that contrasts for factor groups that have more than two levels are a bit more complex than the contrasts from factor groups that have three or more levels. We will see later how to multiply our contrasts by our coefficients for these instances, which is slightly different than what we did before (the principle is the same).</p>
+<pre class="r"><code># run same logistic regression model
+ling_log_reg_model &lt;- that_data %&gt;%
+  glmer(formula = dep_var_numeric ~ verbs_1 + matrix_subj + add_elm + sub_subj + int_mat + tense + (1|indiv),
+        family = &quot;binomial&quot;) %&gt;%
+  summary()
+
+# inspect model
+ling_log_reg_model</code></pre>
+<pre><code>## Generalized linear mixed model fit by maximum likelihood (Laplace
+##   Approximation) [glmerMod]
+##  Family: binomial  ( logit )
+## Formula: dep_var_numeric ~ verbs_1 + matrix_subj + add_elm + sub_subj +  
+##     int_mat + tense + (1 | indiv)
+##    Data: .
+## 
+##      AIC      BIC   logLik deviance df.resid 
+##   1356.5   1417.4   -667.2   1334.5     1861 
+## 
+## Scaled residuals: 
+##     Min      1Q  Median      3Q     Max 
+## -6.5748  0.0906  0.1868  0.3937  3.1500 
+## 
+## Random effects:
+##  Groups Name        Variance Std.Dev.
+##  indiv  (Intercept) 0.6785   0.8237  
+## Number of obs: 1872, groups:  indiv, 32
+## 
+## Fixed effects:
+##              Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)   0.74887    0.18817   3.980 6.90e-05 ***
+## verbs_11     -0.64083    0.17641  -3.633 0.000280 ***
+## verbs_12     -0.76820    0.11301  -6.798 1.06e-11 ***
+## verbs_13      0.26155    0.15662   1.670 0.094937 .  
+## matrix_subj1  0.98165    0.10450   9.394  &lt; 2e-16 ***
+## matrix_subj2 -0.45499    0.11768  -3.866 0.000110 ***
+## add_elm1      0.45078    0.08273   5.449 5.07e-08 ***
+## sub_subj1    -0.28990    0.08039  -3.606 0.000311 ***
+## int_mat1      0.50881    0.08861   5.742 9.35e-09 ***
+## tense1       -0.38528    0.07757  -4.967 6.81e-07 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Correlation of Fixed Effects:
+##             (Intr) vrb_11 vrb_12 vrb_13 mtrx_1 mtrx_2 add_l1 sb_sb1 int_m1
+## verbs_11     0.154                                                        
+## verbs_12    -0.257 -0.366                                                 
+## verbs_13    -0.032 -0.440 -0.160                                          
+## matrix_sbj1 -0.072 -0.073  0.014  0.186                                   
+## matrix_sbj2  0.132  0.119 -0.115 -0.111 -0.551                            
+## add_elm1    -0.116 -0.039  0.003  0.117  0.024  0.021                     
+## sub_subj1    0.186 -0.053  0.039  0.020 -0.068  0.029 -0.029              
+## int_mat1    -0.195 -0.042  0.086  0.012  0.043 -0.035  0.033 -0.010       
+## tense1       0.059 -0.013  0.029 -0.158  0.170  0.010 -0.104  0.123 -0.015</code></pre>
+<p>Next step is to calculate our factor weights by first multiplying our contrasts by our coefficients and then transforming them from logit to probabilities.</p>
+<p>Let’s start with pulling our contrasts and saving them to objects like we did before.</p>
+<pre class="r"><code># pull contrasts
+contrasts_verbs &lt;- that_data %&gt;%
+  pull(verbs_1) %&gt;%
+  contrasts() 
+
+contrasts_mat_sj &lt;- that_data %&gt;%
+  pull(matrix_subj) %&gt;%
+  contrasts() 
+
+contrasts_ad_el &lt;- that_data %&gt;%
+  pull(add_elm) %&gt;%
+  contrasts() 
+
+contrasts_sub_sj &lt;- that_data %&gt;%
+  pull(sub_subj) %&gt;%
+  contrasts() 
+
+contrasts_int_mt &lt;- that_data %&gt;%
+  pull(int_mat) %&gt;%
+  contrasts() 
+
+contrasts_tense &lt;- that_data %&gt;%
+  pull(tense) %&gt;%
+  contrasts() </code></pre>
+<p>Now we need to pull our coefficients.</p>
+<pre class="r"><code># save all coefficients as data frame for filtering
+all_coefficients &lt;- ling_log_reg_model$coefficients %&gt;%
+  as.data.frame()
+
+# add row names as an actual variable
+all_coefficients$level &lt;- row.names(all_coefficients)
+
+# pull out our group estimate
+group_input &lt;- all_coefficients %&gt;%
+  filter(level == &quot;(Intercept)&quot;) %&gt;%
+  pull(Estimate)
+
+# pull out coefficients for verbs_1
+verbs_1_coeffs &lt;- all_coefficients %&gt;%
+  filter(grepl(&quot;verbs_1&quot;, level)) %&gt;%
+  pull(Estimate)
+
+# pull out coefficients for matrix_subj
+matrix_subj_coeffs &lt;- all_coefficients %&gt;%
+  filter(grepl(&quot;matrix_subj&quot;, level)) %&gt;%
+  pull(Estimate)
+
+# pull out coefficients for add_elm
+add_elm_coeffs &lt;- all_coefficients %&gt;%
+  filter(grepl(&quot;add_elm&quot;, level)) %&gt;%
+  pull(Estimate)
+
+# pull out coefficients for sub_subj
+sub_subj_coeffs &lt;- all_coefficients %&gt;%
+  filter(grepl(&quot;sub_subj&quot;, level)) %&gt;%
+  pull(Estimate)
+
+# pull out coefficients for int_mat
+int_mat_coeffs &lt;- all_coefficients %&gt;%
+  filter(grepl(&quot;int_mat&quot;, level)) %&gt;%
+  pull(Estimate)
+
+# pull out coefficients for tense
+tense_coeffs &lt;- all_coefficients %&gt;%
+  filter(grepl(&quot;tense&quot;, level)) %&gt;%
+  pull(Estimate)</code></pre>
+<p>Next step is to multiply contrasts by coefficients. As I mentioned before, matrix multiplications are a little more complex and need some matrix transposing. I will demonstrate how to do this below.</p>
+<pre class="r"><code># transpose contrast matrix before multiplying it by coefficients
+# sum columns to get to individual estimates
+verbs_fws_logit &lt;- (t(contrasts_verbs) * verbs_1_coeffs) %&gt;%
+  colSums() 
+
+# transform logits to probabilities
+verbs_fws_prob &lt;- logit2prob(verbs_fws_logit)
+
+# put everything in a data frame and then
+# arrange by highest factor weight first and then
+# calculate factor weight range
+verbs_results &lt;- data.frame(factor_group = &quot;Lexical verb&quot;,
+                            level = names(verbs_fws_prob),
+                            logit = verbs_fws_logit,
+                            fw = verbs_fws_prob) %&gt;%
+  arrange(-fw) %&gt;%
+  mutate(range = max(fw)-min(fw))
+
+# inspect results
+verbs_results %&gt;%
+  kable(digits = 2)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">factor_group</th>
+<th align="left">level</th>
+<th align="right">logit</th>
+<th align="right">fw</th>
+<th align="right">range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Lexical verb</td>
+<td align="left">Think</td>
+<td align="right">1.15</td>
+<td align="right">0.76</td>
+<td align="right">0.44</td>
+</tr>
+<tr class="even">
+<td align="left">Lexical verb</td>
+<td align="left">Say</td>
+<td align="right">0.26</td>
+<td align="right">0.57</td>
+<td align="right">0.44</td>
+</tr>
+<tr class="odd">
+<td align="left">Lexical verb</td>
+<td align="left">Know</td>
+<td align="right">-0.64</td>
+<td align="right">0.35</td>
+<td align="right">0.44</td>
+</tr>
+<tr class="even">
+<td align="left">Lexical verb</td>
+<td align="left">OTHER</td>
+<td align="right">-0.77</td>
+<td align="right">0.32</td>
+<td align="right">0.44</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code># now we repeat everything for all other five factor groups
+##############  matrix_subj #############
+# transpose contrast matrix before multiplying it by coefficients
+# sum columns to get to individual estimates
+matrix_subj_fws_logit &lt;- (t(contrasts_mat_sj) * matrix_subj_coeffs) %&gt;%
+  colSums() 
+
+# transform logits to probabilities
+matrix_subj_fws_prob &lt;- logit2prob(matrix_subj_fws_logit)
+
+# put everything in a data frame and then
+# arrange by highest factor weight first and then
+# calculate factor weight range
+matrix_subj_results &lt;- data.frame(factor_group = &quot;Matrix subject&quot;,
+                                  level = names(matrix_subj_fws_prob),
+                                  logit = matrix_subj_fws_logit,
+                                  fw = matrix_subj_fws_prob) %&gt;%
+  arrange(-fw) %&gt;%
+  mutate(range = max(fw)-min(fw))
+
+# inspect results
+verbs_results %&gt;%
+  kable(digits = 2)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">factor_group</th>
+<th align="left">level</th>
+<th align="right">logit</th>
+<th align="right">fw</th>
+<th align="right">range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Lexical verb</td>
+<td align="left">Think</td>
+<td align="right">1.15</td>
+<td align="right">0.76</td>
+<td align="right">0.44</td>
+</tr>
+<tr class="even">
+<td align="left">Lexical verb</td>
+<td align="left">Say</td>
+<td align="right">0.26</td>
+<td align="right">0.57</td>
+<td align="right">0.44</td>
+</tr>
+<tr class="odd">
+<td align="left">Lexical verb</td>
+<td align="left">Know</td>
+<td align="right">-0.64</td>
+<td align="right">0.35</td>
+<td align="right">0.44</td>
+</tr>
+<tr class="even">
+<td align="left">Lexical verb</td>
+<td align="left">OTHER</td>
+<td align="right">-0.77</td>
+<td align="right">0.32</td>
+<td align="right">0.44</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>##############  add_elm #############
+# transpose contrast matrix before multiplying it by coefficients
+# sum columns to get to individual estimates
+add_elm_fws_logit &lt;- (t(contrasts_ad_el) * add_elm_coeffs) %&gt;%
+  colSums() 
+
+# transform logits to probabilities
+add_elm_fws_prob &lt;- logit2prob(add_elm_fws_logit)
+
+# put everything in a data frame and then
+# arrange by highest factor weight first and then
+# calculate factor weight range
+add_elm_results &lt;- data.frame(factor_group = &quot;Additional elements&quot;,
+                              level = names(add_elm_fws_prob),
+                              logit = add_elm_fws_logit,
+                              fw = add_elm_fws_prob) %&gt;%
+  arrange(-fw) %&gt;%
+  mutate(range = max(fw)-min(fw))
+
+# inspect results
+add_elm_results %&gt;%
+  kable(digits = 2)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">factor_group</th>
+<th align="left">level</th>
+<th align="right">logit</th>
+<th align="right">fw</th>
+<th align="right">range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Additional elements</td>
+<td align="left">Nothing</td>
+<td align="right">0.45</td>
+<td align="right">0.61</td>
+<td align="right">0.22</td>
+</tr>
+<tr class="even">
+<td align="left">Additional elements</td>
+<td align="left">Something</td>
+<td align="right">-0.45</td>
+<td align="right">0.39</td>
+<td align="right">0.22</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>##############  sub_subj #############
+# transpose contrast matrix before multiplying it by coefficients
+# sum columns to get to individual estimates
+sub_subj_fws_logit &lt;- (t(contrasts_sub_sj) * sub_subj_coeffs) %&gt;%
+  colSums() 
+
+# transform logits to probabilities
+sub_subj_fws_prob &lt;- logit2prob(sub_subj_fws_logit)
+
+# put everything in a data frame and then
+# arrange by highest factor weight first and then
+# calculate factor weight range
+sub_subj_results &lt;- data.frame(factor_group = &quot;Complement Clause Subject&quot;,
+                              level = names(sub_subj_fws_prob),
+                              logit = sub_subj_fws_logit,
+                              fw = sub_subj_fws_prob) %&gt;%
+  arrange(-fw) %&gt;%
+  mutate(range = max(fw)-min(fw))
+
+# inspect results
+sub_subj_results %&gt;%
+  kable(digits = 2)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">factor_group</th>
+<th align="left">level</th>
+<th align="right">logit</th>
+<th align="right">fw</th>
+<th align="right">range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Complement Clause Subject</td>
+<td align="left">Personal Pronoun</td>
+<td align="right">0.29</td>
+<td align="right">0.57</td>
+<td align="right">0.14</td>
+</tr>
+<tr class="even">
+<td align="left">Complement Clause Subject</td>
+<td align="left">Other</td>
+<td align="right">-0.29</td>
+<td align="right">0.43</td>
+<td align="right">0.14</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>##############  int_mat #############
+# transpose contrast matrix before multiplying it by coefficients
+# sum columns to get to individual estimates
+int_mat_fws_logit &lt;- (t(contrasts_int_mt) * int_mat_coeffs) %&gt;%
+  colSums() 
+
+# transform logits to probabilities
+int_mat_fws_prob &lt;- logit2prob(int_mat_fws_logit)
+
+# put everything in a data frame and then
+# arrange by highest factor weight first and then
+# calculate factor weight range
+int_mat_results &lt;- data.frame(factor_group = &quot;Intervening material&quot;,
+                              level = names(int_mat_fws_prob),
+                              logit = int_mat_fws_logit,
+                              fw = int_mat_fws_prob) %&gt;%
+  arrange(-fw) %&gt;%
+  mutate(range = max(fw)-min(fw))
+
+# inspect results
+int_mat_results %&gt;%
+  kable(digits = 2)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">factor_group</th>
+<th align="left">level</th>
+<th align="right">logit</th>
+<th align="right">fw</th>
+<th align="right">range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Intervening material</td>
+<td align="left">None</td>
+<td align="right">0.51</td>
+<td align="right">0.62</td>
+<td align="right">0.25</td>
+</tr>
+<tr class="even">
+<td align="left">Intervening material</td>
+<td align="left">Some</td>
+<td align="right">-0.51</td>
+<td align="right">0.38</td>
+<td align="right">0.25</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>##############  int_mat #############
+# transpose contrast matrix before multiplying it by coefficients
+# sum columns to get to individual estimates
+tense_fws_logit &lt;- (t(contrasts_tense) * tense_coeffs) %&gt;%
+  colSums() 
+
+# transform logits to probabilities
+tense_fws_prob &lt;- logit2prob(tense_fws_logit)
+
+# put everything in a data frame and then
+# arrange by highest factor weight first and then
+# calculate factor weight range
+tense_results &lt;- data.frame(factor_group = &quot;Verb tense&quot;,
+                              level = names(tense_fws_prob),
+                              logit = tense_fws_logit,
+                              fw = tense_fws_prob) %&gt;%
+  arrange(-fw) %&gt;%
+  mutate(range = max(fw)-min(fw))
+
+# inspect results
+tense_results %&gt;%
+  kable(digits = 2)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">factor_group</th>
+<th align="left">level</th>
+<th align="right">logit</th>
+<th align="right">fw</th>
+<th align="right">range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Verb tense</td>
+<td align="left">Present</td>
+<td align="right">0.39</td>
+<td align="right">0.6</td>
+<td align="right">0.19</td>
+</tr>
+<tr class="even">
+<td align="left">Verb tense</td>
+<td align="left">Past</td>
+<td align="right">-0.39</td>
+<td align="right">0.4</td>
+<td align="right">0.19</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>###################### COMBINE EVERYTHING ####################
+# combine all results and arrange by largest range first and then by fw
+all_linguistic_results &lt;- bind_rows(verbs_results, 
+                                    matrix_subj_results, 
+                                    add_elm_results, 
+                                    sub_subj_results, 
+                                    int_mat_results, 
+                                    tense_results) %&gt;%
+  arrange(-range, -fw)
+
+# inspect all results
+all_linguistic_results %&gt;%
+  kable(digits = 2)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">factor_group</th>
+<th align="left">level</th>
+<th align="right">logit</th>
+<th align="right">fw</th>
+<th align="right">range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Lexical verb</td>
+<td align="left">Think</td>
+<td align="right">1.15</td>
+<td align="right">0.76</td>
+<td align="right">0.44</td>
+</tr>
+<tr class="even">
+<td align="left">Lexical verb</td>
+<td align="left">Say</td>
+<td align="right">0.26</td>
+<td align="right">0.57</td>
+<td align="right">0.44</td>
+</tr>
+<tr class="odd">
+<td align="left">Lexical verb</td>
+<td align="left">Know</td>
+<td align="right">-0.64</td>
+<td align="right">0.35</td>
+<td align="right">0.44</td>
+</tr>
+<tr class="even">
+<td align="left">Lexical verb</td>
+<td align="left">OTHER</td>
+<td align="right">-0.77</td>
+<td align="right">0.32</td>
+<td align="right">0.44</td>
+</tr>
+<tr class="odd">
+<td align="left">Matrix subject</td>
+<td align="left">First Person Singular</td>
+<td align="right">0.98</td>
+<td align="right">0.73</td>
+<td align="right">0.36</td>
+</tr>
+<tr class="even">
+<td align="left">Matrix subject</td>
+<td align="left">Noun Phrase</td>
+<td align="right">-0.45</td>
+<td align="right">0.39</td>
+<td align="right">0.36</td>
+</tr>
+<tr class="odd">
+<td align="left">Matrix subject</td>
+<td align="left">Other Pronoun</td>
+<td align="right">-0.53</td>
+<td align="right">0.37</td>
+<td align="right">0.36</td>
+</tr>
+<tr class="even">
+<td align="left">Intervening material</td>
+<td align="left">None</td>
+<td align="right">0.51</td>
+<td align="right">0.62</td>
+<td align="right">0.25</td>
+</tr>
+<tr class="odd">
+<td align="left">Intervening material</td>
+<td align="left">Some</td>
+<td align="right">-0.51</td>
+<td align="right">0.38</td>
+<td align="right">0.25</td>
+</tr>
+<tr class="even">
+<td align="left">Additional elements</td>
+<td align="left">Nothing</td>
+<td align="right">0.45</td>
+<td align="right">0.61</td>
+<td align="right">0.22</td>
+</tr>
+<tr class="odd">
+<td align="left">Additional elements</td>
+<td align="left">Something</td>
+<td align="right">-0.45</td>
+<td align="right">0.39</td>
+<td align="right">0.22</td>
+</tr>
+<tr class="even">
+<td align="left">Verb tense</td>
+<td align="left">Present</td>
+<td align="right">0.39</td>
+<td align="right">0.60</td>
+<td align="right">0.19</td>
+</tr>
+<tr class="odd">
+<td align="left">Verb tense</td>
+<td align="left">Past</td>
+<td align="right">-0.39</td>
+<td align="right">0.40</td>
+<td align="right">0.19</td>
+</tr>
+<tr class="even">
+<td align="left">Complement Clause Subject</td>
+<td align="left">Personal Pronoun</td>
+<td align="right">0.29</td>
+<td align="right">0.57</td>
+<td align="right">0.14</td>
+</tr>
+<tr class="odd">
+<td align="left">Complement Clause Subject</td>
+<td align="left">Other</td>
+<td align="right">-0.29</td>
+<td align="right">0.43</td>
+<td align="right">0.14</td>
+</tr>
+</tbody>
+</table>
+<p>I highly recommend adding information about p values and confidence intervals, but that’s a topic for another post.</p>
 </div>
 </div>
 <div id="references" class="section level1 unnumbered">
