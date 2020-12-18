@@ -2299,12 +2299,62 @@ that_per_indiv %&gt;%
 <pre class="r"><code># inspect two individuals with just one row each
 that_per_indiv %&gt;% 
   filter(indiv %in% c(&quot;sboggin&quot;, &quot;vpriestly&quot;))</code></pre>
-<pre><code>## # A tibble: 2 x 10
-##   dep_var   indiv      n total norm_freq sex   age_3way      age occ    edu     
-##   &lt;chr&gt;     &lt;chr&gt;  &lt;int&gt; &lt;int&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;   
-## 1 that_omi… sbogg…    24    24       100 F     Younger (u…    23 Blue-… More th…
-## 2 that_omi… vprie…    15    15       100 M     Older (66+)    84 Blue-… Up to m…</code></pre>
-<p>As suspected, two individuals have 100% of <em>that omission</em>. Since we will focus only on that omission, we could proceed with the data frame as is. I like to ensure my data frame is complete before proceeding, just in case I decide to change my analysis in the future and focus on that expressed instead (you really never know, so better to be safe). Besides, zeros are data too! I hope I convinced you to do this next step to complete your aggregate data.</p>
+<table style="width:100%;">
+<caption><span id="tab:tab1">Table 5.1: </span>Individuals with 100% of one variant.</caption>
+<colgroup>
+<col width="12%"></col>
+<col width="9%"></col>
+<col width="2%"></col>
+<col width="5%"></col>
+<col width="9%"></col>
+<col width="3%"></col>
+<col width="18%"></col>
+<col width="3%"></col>
+<col width="11%"></col>
+<col width="21%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">dep_var</th>
+<th align="left">indiv</th>
+<th align="right">n</th>
+<th align="right">total</th>
+<th align="right">norm_freq</th>
+<th align="left">sex</th>
+<th align="left">age_3way</th>
+<th align="right">age</th>
+<th align="left">occ</th>
+<th align="left">edu</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">that_omitted</td>
+<td align="left">sboggin</td>
+<td align="right">24</td>
+<td align="right">24</td>
+<td align="right">100</td>
+<td align="left">F</td>
+<td align="left">Younger (under 35)</td>
+<td align="right">23</td>
+<td align="left">Blue-Collar</td>
+<td align="left">More than minimum age</td>
+</tr>
+<tr class="even">
+<td align="left">that_omitted</td>
+<td align="left">vpriestly</td>
+<td align="right">15</td>
+<td align="right">15</td>
+<td align="right">100</td>
+<td align="left">M</td>
+<td align="left">Older (66+)</td>
+<td align="right">84</td>
+<td align="left">Blue-Collar</td>
+<td align="left">Up to minimum age</td>
+</tr>
+</tbody>
+</table>
+<p>As suspected, as shown in Table <a href="#tab:tab1">5.1</a>, two individuals have 100% of <em>that omission</em>. Since we will focus only on that omission, we could proceed with the data frame as is. I like to ensure my data frame is complete before proceeding, just in case I decide to change my analysis in the future and focus on that expressed instead (you really never know, so better to be safe). Besides, zeros are data too! I hope I convinced you to do this next step to complete your aggregate data.</p>
 <pre class="r"><code># run the same aggregation as before but add complete() and mutate() to
 # complete data with missing combinations of individual and variant
 that_per_indiv &lt;- that_data %&gt;%
