@@ -2215,7 +2215,7 @@ log\frac{P}{1-P} = \mu+a*x_1+b*x_2+...
 </div>
 <div id="variable-rule-in-r" class="section level1">
 <h1><span class="header-section-number">3</span> Variable Rule in R</h1>
-<p>Basically what is meant by variable rule analysis is the evaluation of “the effects of multiple factors on a binary linguistic ‘choice’ – the presence or absence of an element, or any phenomenon treated as an alternation between two variants” <span class="citation">(Johnson 2009, 359)</span>. Most recently, scholars have made the shift to more modern statistical software environments, such as R, which requires a broader understanding of statistics and software programming since these new environments are not single-purpose software such as VARBRUL and GoldVarb <span class="citation">(Johnson 2009)</span>.</p>
+<p>Basically what is meant by variable rule analysis is the evaluation of “the effects of multiple factors on a binary linguistic ‘choice’ – the presence or absence of an element, or any phenomenon treated as an alternation between two variants” <span class="citation">(Johnson 2009, 359)</span>. Most recently, scholars have made the shift to more modern statistical software environments, such as R, which requires a broader understanding of statistics and software programming since these new environments are not single-purpose software such as VARBRUL and GoldVarb <span class="citation">(Johnson 2009; Tagliamonte and D’Arcy 2017)</span>.</p>
 <p>There are three main things to consider when running multivariate <strong>logistic</strong> regression in R for the purpose of the study of language variation:</p>
 <ol style="list-style-type: decimal">
 <li><p>Variable rule analysis, as seen in the formalization above, outputs <em><span class="math inline">\(\mu\)</span></em> as the average tendency pertinent to all contexts. In other words, our intercept (i.e., probability estimate when all factor levels are zero) needs to be the average probability of our dependent variable overall. For this, we need to change the <em>default</em> from <em>treatment contrasts</em> to <strong>sum contrasts</strong> <span class="citation">(Johnson 2009)</span>.</p></li>
@@ -3627,7 +3627,7 @@ matrix_subj_results &lt;- data.frame(factor_group = &quot;Matrix subject&quot;,
   mutate(range = max(fw)-min(fw))
 
 # inspect results
-verbs_results %&gt;%
+matrix_subj_results %&gt;%
   kable(digits = 2)</code></pre>
 <table>
 <thead>
@@ -3641,32 +3641,25 @@ verbs_results %&gt;%
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Lexical verb</td>
-<td align="left">Think</td>
-<td align="right">1.15</td>
-<td align="right">0.76</td>
-<td align="right">0.44</td>
+<td align="left">Matrix subject</td>
+<td align="left">First Person Singular</td>
+<td align="right">0.98</td>
+<td align="right">0.73</td>
+<td align="right">0.36</td>
 </tr>
 <tr class="even">
-<td align="left">Lexical verb</td>
-<td align="left">Say</td>
-<td align="right">0.26</td>
-<td align="right">0.57</td>
-<td align="right">0.44</td>
+<td align="left">Matrix subject</td>
+<td align="left">Noun Phrase</td>
+<td align="right">-0.45</td>
+<td align="right">0.39</td>
+<td align="right">0.36</td>
 </tr>
 <tr class="odd">
-<td align="left">Lexical verb</td>
-<td align="left">Know</td>
-<td align="right">-0.64</td>
-<td align="right">0.35</td>
-<td align="right">0.44</td>
-</tr>
-<tr class="even">
-<td align="left">Lexical verb</td>
-<td align="left">OTHER</td>
-<td align="right">-0.77</td>
-<td align="right">0.32</td>
-<td align="right">0.44</td>
+<td align="left">Matrix subject</td>
+<td align="left">Other Pronoun</td>
+<td align="right">-0.53</td>
+<td align="right">0.37</td>
+<td align="right">0.36</td>
 </tr>
 </tbody>
 </table>
@@ -4020,6 +4013,9 @@ all_linguistic_results </code></pre>
 </div>
 <div id="ref-tagliamonte2012variationist">
 <p>Tagliamonte, Sali A. 2012. <em>Variationist Sociolinguistics: Change, Observation, Interpretation</em>. Vol. 39. John Wiley &amp; Sons.</p>
+</div>
+<div id="ref-Tagliamonte_DArcy">
+<p>Tagliamonte, Sali A., and Alexandra D’Arcy. 2017. “Individuals, Communities and the Sociolinguistic Canon.” New Ways of Analyzing Variation (NWAV) 46. Madison, Wisconsin.</p>
 </div>
 </div>
 </div>
