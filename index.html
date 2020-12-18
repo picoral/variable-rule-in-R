@@ -2161,7 +2161,7 @@ summary {
 <li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a></li>
 <li><a href="#formalization"><span class="toc-section-number">2</span> Formalization</a></li>
 <li><a href="#variable-rule-in-r"><span class="toc-section-number">3</span> Variable Rule in R</a></li>
-<li><a href="#linear-or-logistic-regression"><span class="toc-section-number">4</span> Linear or logistic regression?</a></li>
+<li><a href="#linear-vs.-logistic-regression"><span class="toc-section-number">4</span> Linear vs. logistic regression</a></li>
 <li><a href="#case-study-variable-that"><span class="toc-section-number">5</span> Case Study (Variable <em>that</em>)</a><ul>
 <li><a href="#linear-regression-with-normalized-frequencies"><span class="toc-section-number">5.1</span> Linear regression with normalized frequencies</a></li>
 <li><a href="#logistic-regression-with-individual-token-occurrences"><span class="toc-section-number">5.2</span> Logistic regression with individual token occurrences</a></li>
@@ -2197,7 +2197,7 @@ log\frac{P}{1-P} = \mu+a*x_1+b*x_2+...
 <div id="variable-rule-in-r" class="section level1">
 <h1><span class="header-section-number">3</span> Variable Rule in R</h1>
 <p>Basically what is meant by variable rule analysis is the evaluation of “the effects of multiple factors on a binary linguistic ‘choice’ – the presence or absence of an element, or any phenomenon treated as an alternation between two variants” <span class="citation">(Johnson 2009, 359)</span>. Most recently, scholars have made the shift to more modern statistical software environments, such as R, which requires a broader understanding of statistics and software programming since these new environments are not single-purpose software such as VARBRUL and GoldVarb <span class="citation">(Johnson 2009)</span>.</p>
-<p>There are three main things to consider when running multivariate logistic regression in R for the purpose of the study of language variation:</p>
+<p>There are three main things to consider when running multivariate <strong>logistic</strong> regression in R for the purpose of the study of language variation:</p>
 <ol style="list-style-type: decimal">
 <li><p>Variable rule analysis, as seen in the formalization above, outputs <em><span class="math inline">\(\mu\)</span></em> as the average tendency pertinent to all contexts. In other words, our intercept (i.e., probability estimate when all factor levels are zero) needs to be the average probability of our dependent variable overall. For this, we need to change the <em>default</em> from <em>treatment contrasts</em> to <strong>sum contrasts</strong> <span class="citation">(Johnson 2009)</span>.</p></li>
 <li><p>While variable rule analysis presents results in probabilities (values between 0 and 1), R outputs regression results as logit <span class="citation">(Johnson 2009)</span>. We can easily convert one format into another with the following formula:</p></li>
@@ -2211,8 +2211,8 @@ probability = \frac{exp({logit})}{1 + exp({logit})}
 <li>We need to multiply estimates by the contrast matrix to get estimates for all factor group levels.</li>
 </ol>
 </div>
-<div id="linear-or-logistic-regression" class="section level1">
-<h1><span class="header-section-number">4</span> Linear or logistic regression?</h1>
+<div id="linear-vs.-logistic-regression" class="section level1">
+<h1><span class="header-section-number">4</span> Linear vs. logistic regression</h1>
 <p>Both linear and logistic regression are commonly used in quantitative language analysis. The general goal of regression is to build a <em>model</em> where a response or dependent variable (often represented as <span class="math inline">\(y\)</span>) can be predicted or estimated (often represented as <span class="math inline">\(\hat{y}\)</span>) according to a number of independent variables (or factor groups).</p>
 <p>In <strong>linear regression</strong>, a linear (i.e., straight, or with no curving) line is fit into the data. Figure <a href="#fig:fig1a">4.1</a> shows an example of data with <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> variables and a regression line of <span class="math inline">\(y ~ x\)</span> (i.e., <span class="math inline">\(y\)</span> by <span class="math inline">\(x\)</span>). Continuous numeric variables in language use are usually normalized frequencies of linguistic structures.</p>
 <div class="figure"><span id="fig:fig1a"></span>
