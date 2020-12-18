@@ -3036,14 +3036,14 @@ data.frame(all_estimates_logit,
 <p>Here I’d like to make sure that you have to calculate the coefficients in logit before transforming the to probabilities. Also, make sure you follow the right way to calculate estimates by factor group level (by multiplying contrasts by coefficients and adding the intercept). Do not convert or visualize the estimates as they are because that can be misleading.</p>
 <p>To demonstrate the problem of reporting only the raw estimates output by the regression summary, I will convert the individual coefficients to probabilities and then I will change the order of group factor levels to show how difference results supposedly look (they are the same if you multiply the contrasts by coefficients).</p>
 <p>So, in summary, here’s what <strong>not to do</strong>:</p>
-<pre class="r"><code># don&#39;t do this (convert raw estimates to probabilities)
-blue_collar_as_intercept &lt;- c(logit2prob(log_reg_model$coefficients[1,1]),
+<pre class="r"><code># don&#39;t do this (report and convert raw estimates to probabilities)
+blue_collar_as_intercept_logit &lt;- c(log_reg_model$coefficients[1,1],
+                                    log_reg_model$coefficients[2,1])
+
+blue_collar_as_intercept_prob &lt;- c(logit2prob(log_reg_model$coefficients[1,1]),
                               logit2prob(log_reg_model$coefficients[2,1]))
 
-# inspect these (wrong) probability results
-blue_collar_as_intercept</code></pre>
-<pre><code>## [1] 0.8864138 0.3058498</code></pre>
-<pre class="r"><code># let&#39;s change the order of factor group levels (make White-Collar the &quot;control group&quot;)
+# let&#39;s change the order of factor group levels (make White-Collar the &quot;control group&quot;)
 that_data &lt;- that_data %&gt;%
   mutate(occ = factor(occ,
                       levels = c(&quot;White-Collar&quot;,
@@ -3085,41 +3085,57 @@ log_reg_model_2</code></pre>
 ## Correlation of Fixed Effects:
 ##             (Intr)
 ## occBlu-Cllr -0.526</code></pre>
-<pre class="r"><code># don&#39;t do this (convert raw estimates to probabilities) 
+<pre class="r"><code># don&#39;t do this (report raw logits and convert raw estimates to probabilities) 
 # do second estimate as the first estimate to align with blue_collar_as_intercept
-white_collar_as_intercept &lt;- c(logit2prob(log_reg_model_2$coefficients[2,1]),
-                               logit2prob(log_reg_model_2$coefficients[1,1]))
+white_collar_as_intercept_logit &lt;- c(log_reg_model_2$coefficients[2,1],
+                                    log_reg_model_2$coefficients[1,1])
 
-# inspect these (wrong) probability results
-white_collar_as_intercept</code></pre>
-<pre><code>## [1] 0.6941505 0.7746984</code></pre>
-<pre class="r"><code># print both results together
+white_collar_as_intercept_prob &lt;- c(logit2prob(log_reg_model_2$coefficients[2,1]),
+                                    logit2prob(log_reg_model_2$coefficients[1,1]))
+
+
+# print both results together
 data.frame(factor_level = c(&quot;Blue-Collar&quot;, &quot;White-Collar&quot;),
-           blue_collar_as_intercept,
-           white_collar_as_intercept) %&gt;%
+           blue_collar_as_intercept_logit,
+           blue_collar_as_intercept_prob,
+           white_collar_as_intercept_logit,
+           white_collar_as_intercept_prob) %&gt;%
   kable(digits = 2)</code></pre>
 <table>
+<colgroup>
+<col width="9%"></col>
+<col width="22%"></col>
+<col width="21%"></col>
+<col width="23%"></col>
+<col width="22%"></col>
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">factor_level</th>
-<th align="right">blue_collar_as_intercept</th>
-<th align="right">white_collar_as_intercept</th>
+<th align="right">blue_collar_as_intercept_logit</th>
+<th align="right">blue_collar_as_intercept_prob</th>
+<th align="right">white_collar_as_intercept_logit</th>
+<th align="right">white_collar_as_intercept_prob</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">Blue-Collar</td>
+<td align="right">2.05</td>
 <td align="right">0.89</td>
+<td align="right">0.82</td>
 <td align="right">0.69</td>
 </tr>
 <tr class="even">
 <td align="left">White-Collar</td>
+<td align="right">-0.82</td>
 <td align="right">0.31</td>
+<td align="right">1.24</td>
 <td align="right">0.77</td>
 </tr>
 </tbody>
 </table>
-<p>Let me repeat myself here. The results in the table above <strong>are very wrong</strong> because I converted the raw logits to probabilities, and they change according to what factor level is your reference. <strong>Don’t do this</strong>.</p>
+<p>Let me repeat myself here. The results in the table above <strong>are very wrong</strong> because I and reporting raw logits and I also converted these raw logits to probabilities, and these change according to what factor level is your reference. <strong>Don’t do this</strong>.</p>
 <p>What you need to do instead is to calculate estimates by multiplying contrasts by coefficients and adding the intercept (in other words: follow the formula).</p>
 <p>Let’s see what changing contrast from the default treatment contrast to sum contrasts (i.e., the intercept is the estimate for entire group) does for our analysis.</p>
 <pre class="r"><code># change contrasts to sum contrasts
