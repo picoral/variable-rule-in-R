@@ -2276,7 +2276,7 @@ Figure 4.2: Scatter plot of a binary variable y (0 for one choice 1 for another)
 ## $ dep_var_numeric &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,…</code></pre>
 <div id="linear-regression-with-normalized-frequencies" class="section level2">
 <h2><span class="header-section-number">5.1</span> Linear regression with normalized frequencies</h2>
-<p>I will start this case study analysis with a common method to create a dependent variable that is continuous and numeric, by calculating normalized frequencies of use. Frequencies are normalized by participant, i.e., the frequency of each variant (i.e., that omitted and that expressed) divided by total number of tokens per participants. I am multiplying this division by 100 because that is the order of magnitude for total tokens for the participants with the most number of tokens.</p>
+<p>I will start this case study analysis with a common method to create a dependent variable that is continuous and numeric, by calculating normalized frequencies of use. Frequencies are normalized by participant, i.e., the frequency of each variant (i.e., <em>that omitted</em> and <em>that expressed</em>) divided by total number of tokens per participant. I am multiplying this division by 100 because that is the order of magnitude for total tokens for the participants with the most number of tokens.</p>
 <pre class="r"><code># create that_per_indiv (variable that data per individual) by first
 # counting how many that_omission and how many that_expressed by individual
 # then combine total token count per individual creating a new total column
