@@ -14,7 +14,7 @@
 <meta name="author" content="School of Information @ University of Arizona" />
 <meta name="author" content="adrianaps@arizona.edu" />
 
-<meta name="date" content="2020-12-18" />
+<meta name="date" content="2020-12-20" />
 
 <title>Quantitative Language Data Analysis in R</title>
 
@@ -2171,7 +2171,7 @@ summary {
 <h4 class="author">Assistant Professor of Data Science</h4>
 <h4 class="author">School of Information @ University of Arizona</h4>
 <h4 class="author"><a href="mailto:adrianaps@arizona.edu" class="email">adrianaps@arizona.edu</a></h4>
-<h4 class="date">18 December 2020</h4>
+<h4 class="date">20 December 2020</h4>
 
 </div>
 
@@ -2209,7 +2209,7 @@ log\frac{P}{1-P} = \mu+a*x_1+b*x_2+...
 <ul>
 <li><p><em>P</em> is the probability that one variant in the language variable (e.g., omission of <em>that</em> complementizer) is used versus the other choice (e.g., overt <em>that</em> complementizer) and is a value between 0 and 1</p></li>
 <li><p><em><span class="math inline">\(\mu\)</span></em> is the average tendency pertinent to all contexts (without any changes to <span class="math inline">\(a*x_1+b*x_2+...\)</span>)</p></li>
-<li><p><em>a</em>, <em>b</em>, and so on are the linguistic and social variables (e.g., <em>like</em> lexical verb in the main clause vs. other verbs, blue-color worker vs. other types of workers) which are either 0 (indicating the context does not present that specific variable) or 1 (indicating the context has that specific variable)</p></li>
+<li><p><em>a</em>, <em>b</em>, and so on are the linguistic and social variables (e.g., <em>like</em> lexical verb in the main clause vs. other verbs, blue-collar worker vs. other types of workers) which are either 0 (indicating the context does not present that specific variable) or 1 (indicating the context has that specific variable)</p></li>
 <li><p><em><span class="math inline">\(x_1\)</span></em>, <em><span class="math inline">\(x_2\)</span></em>, and so on represent the factor level effect of each linguistic and social variable (i.e., estimates or factor weights)</p></li>
 <li><p><span class="math inline">\(\mu+a*x_1+b*x_2+...\)</span> represents the overall tendency combined with weights for each component features that is present in the given context (i.e., all factor levels that are 1 for present in that context)</p></li>
 </ul>
@@ -2220,15 +2220,27 @@ log\frac{P}{1-P} = \mu+a*x_1+b*x_2+...
 <p>There are three main things to consider when running multivariate <strong>logistic</strong> regression in R for the purpose of the study of language variation:</p>
 <ol style="list-style-type: decimal">
 <li><p>Variable rule analysis, as seen in the formalization above, outputs <em><span class="math inline">\(\mu\)</span></em> as the average tendency pertinent to all contexts. In other words, our intercept (i.e., probability estimate when all factor levels are zero) needs to be the average probability of our dependent variable overall. For this, we need to change the <em>default</em> from <em>treatment contrasts</em> to <strong>sum contrasts</strong> <span class="citation">(Johnson 2009)</span>.</p></li>
-<li><p>While variable rule analysis presents results in probabilities (values between 0 and 1), R outputs regression results as logit <span class="citation">(Johnson 2009)</span>. We can easily convert one format into another with the following formula:</p></li>
+<li><p>While variable rule analysis presents results in probabilities (values between 0 and 1), R outputs regression results as logit (as known as log-odds) <span class="citation">(Johnson 2009)</span>. Remember our formula:</p></li>
 </ol>
+<p><span class="math display">\[\begin{align*}
+
+logit(P) = log\frac{P}{1-P}
+
+\end{align*}\]</span></p>
+<p>where:</p>
+<ul>
+<li><p><em>P</em> is our <strong>probability</strong></p></li>
+<li><p><em>P/(1-p)</em> is our <strong>odds</strong></p></li>
+</ul>
+<p>The logit of the probability is the logarithm of the odds. Using the logarithm of the odds makes it easier to deal with very small probabilities. If you have a small probability multiplied by another small probability, you get an even smaller number (with lots and lots of zeros after the decimal point), which could cause problems in early computers with limited representation for numbers. Log-odds are added (not multiplied) to calculate joint probabilities (which is also an easier operation than multiplication).</p>
+<p>We can easily convert log-odds back into probabilities with the following formula:</p>
 <p><span class="math display">\[\begin{align*}
 
 probability = \frac{exp({logit})}{1 + exp({logit})}
 
 \end{align*}\]</span></p>
 <ol start="3" style="list-style-type: decimal">
-<li>We need to multiply estimates by the contrast matrix to get estimates for all factor group levels.</li>
+<li>Finally, we need to multiply coefficients from our regression output by the contrast matrix to get estimates for all factor group levels.</li>
 </ol>
 </div>
 <div id="linear-vs.-logistic-regression" class="section level1">
@@ -2248,7 +2260,7 @@ Figure 4.1: Scatter plot of a numeric continous variable y by another numeric co
 Figure 4.2: Scatter plot of a binary variable y (0 for one choice 1 for another) by another numeric continous varible x.
 </p>
 </div>
-<p>In the next section, I will use a case study to demonstrate first how to aggregate data to run <strong>linear</strong> regression with a numeric continuous variable. This method is similar to what one do to run ANOVA on language data, and it is commonly used in fields like corpus linguistics. Other example of a continuous numeric variable is reaction times, commonly used in the field of experimental linguistics.</p>
+<p>In the next section, I will use a case study to demonstrate first how to aggregate data to run <strong>linear</strong> regression with a numeric continuous variable. This method is similar to what one would do to run ANOVA on language data, and it is commonly used in fields like corpus linguistics. Other example of a continuous numeric variable is reaction times, commonly used in the field of experimental linguistics.</p>
 <p>I do believe that in order to understand why <strong>logistic</strong> regression is preferred for certain types of linguistic data, as argued by <span class="citation">Sankoff and Labov (1979)</span>, a good understanding of what <strong>linear</strong> Regression does and how its output is interpreted is essential. I will then analyze the same data but instead of aggregating it to get to normalized frequencies of use, I will use each observation of an instance of the linguistic construction being used (i.e., commonly known in language variation and change as tokens) as individual data points, with a binary dependent variable.</p>
 </div>
 <div id="case-study-variable-that" class="section level1">
@@ -2475,7 +2487,7 @@ that_per_indiv %&gt;%
 </tbody>
 </table>
 <p>Table <a href="#tab:tab2">5.2</a> shows the same individuals as shown in Table <a href="#tab:tab1">5.1</a>, but completed with the variants that have zero frequency in the data.</p>
-<p>Here’s what the resulting data looks like. Note that we went from the original data frame that had 1872 observations (i.e., tokens) to an aggregate data frame by individual with 32 observations for omission of that complementizer. By aggregating the data by individual to create a numeric dependent variable, we are decreasing our statistical power and loosing the context of each occurrence of that complement occurrence.</p>
+<p>Here’s what the resulting data looks like. Note that we went from the original data frame that had 1872 observations (i.e., tokens) to an aggregate data frame by individual with 32 observations for omission of that complementizer. By aggregating the data by individual to create a numeric dependent variable, we are decreasing our statistical power and losing the context of each occurrence of that complement occurrence.</p>
 <div id="htmlwidget-f94ada96a0d50e433b66" class="reactable html-widget" style="width:auto;height:auto;"></div>
 <script type="application/json" data-for="htmlwidget-f94ada96a0d50e433b66">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"dep_var":["that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted","that_expressed","that_omitted"],"indiv":["acork","acork","bhamilton","bhamilton","cbeale","cbeale","cbeckett","cbeckett","cgiles","cgiles","conniebeale","conniebeale","dburns","dburns","ddavis","ddavis","dwallis","dwallis","eburritt","eburritt","echapman","echapman","ggreen","ggreen","hbutton","hbutton","hstainton","hstainton","jtweddle","jtweddle","kyoung","kyoung","lmcgrath","lmcgrath","mjohnstone","mjohnstone","mlondry","mlondry","mpeters","mpeters","mtoovey","mtoovey","nbond","nbond","ocavell","ocavell","rbeale","rbeale","rcotton","rcotton","rjones","rjones","rmitchell","rmitchell","sboggin","sboggin","sevans","sevans","swatkins","swatkins","vpriestly","vpriestly","wevans","wevans"],"n":[11,21,2,26,6,13,11,51,4,48,9,57,23,125,3,54,5,17,6,38,29,105,11,75,12,32,3,38,3,12,30,70,5,39,7,8,10,38,6,49,13,47,39,128,12,23,1,4,23,100,24,43,2,49,0,24,51,56,9,23,0,15,25,49],"total":[32,32,28,28,19,19,62,62,52,52,66,66,148,148,57,57,22,22,44,44,134,134,86,86,44,44,41,41,15,15,100,100,44,44,15,15,48,48,55,55,60,60,167,167,35,35,5,5,123,123,67,67,51,51,24,24,107,107,32,32,15,15,74,74],"norm_freq":[34.38,65.62,7.14,92.86,31.58,68.42,17.74,82.26,7.69,92.31,13.64,86.36,15.54,84.46,5.26,94.74,22.73,77.27,13.64,86.36,21.64,78.36,12.79,87.21,27.27,72.73,7.32,92.68,20,80,30,70,11.36,88.64,46.67,53.33,20.83,79.17,10.91,89.09,21.67,78.33,23.35,76.65,34.29,65.71,20,80,18.7,81.3,35.82,64.18,3.92,96.08,0,100,47.66,52.34,28.12,71.88,0,100,33.78,66.22],"sex":["F","F","M","M","M","M","M","M","M","M","F","F","M","M","M","M","M","M","F","F","F","F","F","F","M","M","M","M","M","M","F","F","F","F","M","M","F","F","F","F","M","M","F","F","M","M","M","M","F","F","M","M","M","M","F","F","F","F","M","M","M","M","M","M"],"age_3way":["Older (66+)","Older (66+)","Older (66+)","Older (66+)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Younger (under 35)","Younger (under 35)","Older (66+)","Older (66+)","Older (66+)","Older (66+)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Older (66+)","Older (66+)","Middle (36-65)","Middle (36-65)","Older (66+)","Older (66+)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Older (66+)","Older (66+)","Middle (36-65)","Middle (36-65)","Younger (under 35)","Younger (under 35)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Middle (36-65)","Younger (under 35)","Younger (under 35)","Middle (36-65)","Middle (36-65)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Younger (under 35)","Older (66+)","Older (66+)","Middle (36-65)","Middle (36-65)","Older (66+)","Older (66+)","Older (66+)","Older (66+)"],"age":[76,76,91,91,30,30,29,29,20,20,48,48,60,60,19,19,72,72,82,82,55,55,45,45,68,68,59,59,78,78,30,30,27,27,53,53,62,62,81,81,40,40,34,34,40,40,52,52,34,34,50,50,20,20,23,23,69,69,37,37,84,84,72,72],"occ":["White-Collar","White-Collar","Blue-Collar","Blue-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar","White-Collar","White-Collar","Blue-Collar","Blue-Collar","White-Collar","White-Collar"],"edu":["Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","Up to minimum age","Up to minimum age","More than minimum age","More than minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","More than minimum age","More than minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","More than minimum age","More than minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","More than minimum age","Up to minimum age","Up to minimum age","Up to minimum age","Up to minimum age"]},"columns":[{"accessor":"dep_var","name":"dep_var","type":"character"},{"accessor":"indiv","name":"indiv","type":"character"},{"accessor":"n","name":"n","type":"numeric"},{"accessor":"total","name":"total","type":"numeric"},{"accessor":"norm_freq","name":"norm_freq","type":"numeric"},{"accessor":"sex","name":"sex","type":"character"},{"accessor":"age_3way","name":"age_3way","type":"character"},{"accessor":"age","name":"age","type":"numeric"},{"accessor":"occ","name":"occ","type":"character"},{"accessor":"edu","name":"edu","type":"character"}],"defaultPageSize":6,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"bd9b8cdd6590d9b3df83c0ebd4480e30","key":"bd9b8cdd6590d9b3df83c0ebd4480e30"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 <p>Let’s visualize the data by individual ordered by normalized frequency of that omission. I will add occupation as the color, to verify whether occupation is split in terms of normalized frequency of that omission.</p>
@@ -2530,7 +2542,7 @@ that_per_indiv %&gt;%
 Figure 5.2: Plot showing each individual’s normalized frequency of that omission across individual age, color-coded by sex, split by occupation.
 </p>
 </div>
-<p>Figure <a href="#fig:fig2">5.2</a> shows plots split by occupation, with normalized frequency by age of participant. Each data point is an individual, and the size of the point indicates how many tokens we have for each participant (i.e., the larger the point, the more tokens that participant produced). Color indicates sex (i.e., female and male). Regression lines are also shown color-coded by sex. It seems that for white-collar workers, the normalized frequency of that omission goes down with age increase. There are only three female participants that are blue-collar workers, and they follow the same negative relationship with <em>that omission</em> and age. The same is not true for male blue-collar workers, where the regression line is flat (or slightly positive).</p>
+<p>Figure <a href="#fig:fig2">5.2</a> shows plots split by occupation, with normalized frequency by age of participant. Each data point is an individual, and the size of the point indicates how many tokens we have for each participant (i.e., the larger the point, the more tokens that participant produced). Note that some participants have a very low number of tokens, which can be a problem for any type of statistical test you run. Later we will add individual as a random effect in our logistic regression modeling, which at least takes into account individual variation. Going back to Figure <a href="#fig:fig2">5.2</a> , color indicates sex (i.e., female and male). Regression lines are also shown color-coded by sex. It seems that for white-collar workers, the normalized frequency of that omission goes down with age increase. There are only three female participants that are blue-collar workers, and they follow the same negative relationship with <em>that omission</em> and age. The same is not true for male blue-collar workers, where the regression line is flat (or slightly positive).</p>
 <p>We can also visualize means by sex, occupation, and age group, which is useful especially when interpreting results for linear regression (the estimates will approximate the means of your numeric dependent variable and differences between means).</p>
 <pre class="r"><code>that_per_indiv %&gt;%
   filter(dep_var == &quot;that_omitted&quot;) %&gt;%
@@ -2987,7 +2999,7 @@ all_estimates_2 %&gt;%
 Figure 5.5: Box plot showing median and mean of normalized frequency of that omission across occupation. Red horizontal dash line is the group mean.
 </p>
 </div>
-<p>As mentioned at the top of this section, linear regression modeling requires a continuous numeric variable which in turns requires data aggregation in the format of percentage of use by individual (or another variable such as lexical verb). This process of aggregation flattens the data, which results in our loosing the complete linguistic context of each individual token.</p>
+<p>As mentioned at the top of this section, linear regression modeling requires a continuous numeric variable which in turns requires data aggregation in the format of percentage of use by individual (or another variable such as lexical verb). This process of aggregation flattens the data, which results in our losing the complete linguistic context of each individual token.</p>
 <p>In the next section will demonstrate how we can analyze the same data with no data aggregation, by using logistic regression with a binary dependent variable for each occurrence of complement clause in the data.</p>
 </div>
 <div id="logistic-regression-with-individual-token-occurrences" class="section level2">
@@ -3244,7 +3256,7 @@ log_reg_model_3</code></pre>
 ## Correlation of Fixed Effects:
 ##      (Intr)
 ## occ1 -0.435</code></pre>
-<p>Once again our raw coefficients look very different from previous runs, but results should be similar. So let’s do the right thing and multiple contrasts by coefficients and add intercept.</p>
+<p>Once again our raw coefficients look very different from previous runs, but results should be similar. Coefficients will look different in different regression modeling depending on the format of your dependent variable and how your contrasts are set (i.e., what you are using as reference for the coefficients). In the previous section, when we ran linear regression, which had a continuous numeric dependent variable of normalized frequencies. This time around we are running logistic regression with a binary (i.e., 0 or 1) dependent variable, and the coefficients are output as logits. However, as I mentioned, in the end, results should be somewhat similar, because we are looking at the same data and the same independent variable (i.e., occupation). Having individual tokens as our data points (instead of aggregate data per participant) allows us to take individual behavior into account in our logistic regression (i.e., individual is set as a random slope). What we need to do to get to the actual estimates for each level in our factor group occupation is to multiple contrasts by coefficients and add intercept. We will also convert logits to probabilities.</p>
 <pre class="r"><code># pull contrasts for occupation
 contrasts_occ_4 &lt;- that_data %&gt;%
   pull(occ) %&gt;%
@@ -3561,7 +3573,7 @@ verbs_results &lt;- data.frame(factor_group = &quot;Lexical verb&quot;,
                             logit = verbs_fws_logit,
                             fw = verbs_fws_prob) %&gt;%
   arrange(-fw) %&gt;%
-  mutate(range = max(fw)-min(fw))
+  mutate(range = round((max(fw)-min(fw))*100, digits = 0))
 
 # inspect results
 verbs_results %&gt;%
@@ -3582,28 +3594,28 @@ verbs_results %&gt;%
 <td align="left">Think</td>
 <td align="right">1.15</td>
 <td align="right">0.76</td>
-<td align="right">0.44</td>
+<td align="right">44</td>
 </tr>
 <tr class="even">
 <td align="left">Lexical verb</td>
 <td align="left">Say</td>
 <td align="right">0.26</td>
 <td align="right">0.57</td>
-<td align="right">0.44</td>
+<td align="right">44</td>
 </tr>
 <tr class="odd">
 <td align="left">Lexical verb</td>
 <td align="left">Know</td>
 <td align="right">-0.64</td>
 <td align="right">0.35</td>
-<td align="right">0.44</td>
+<td align="right">44</td>
 </tr>
 <tr class="even">
 <td align="left">Lexical verb</td>
 <td align="left">OTHER</td>
 <td align="right">-0.77</td>
 <td align="right">0.32</td>
-<td align="right">0.44</td>
+<td align="right">44</td>
 </tr>
 </tbody>
 </table>
@@ -3625,7 +3637,7 @@ matrix_subj_results &lt;- data.frame(factor_group = &quot;Matrix subject&quot;,
                                   logit = matrix_subj_fws_logit,
                                   fw = matrix_subj_fws_prob) %&gt;%
   arrange(-fw) %&gt;%
-  mutate(range = max(fw)-min(fw))
+  mutate(range = round((max(fw)-min(fw))*100, digits = 0))
 
 # inspect results
 matrix_subj_results %&gt;%
@@ -3646,21 +3658,21 @@ matrix_subj_results %&gt;%
 <td align="left">First Person Singular</td>
 <td align="right">0.98</td>
 <td align="right">0.73</td>
-<td align="right">0.36</td>
+<td align="right">36</td>
 </tr>
 <tr class="even">
 <td align="left">Matrix subject</td>
 <td align="left">Noun Phrase</td>
 <td align="right">-0.45</td>
 <td align="right">0.39</td>
-<td align="right">0.36</td>
+<td align="right">36</td>
 </tr>
 <tr class="odd">
 <td align="left">Matrix subject</td>
 <td align="left">Other Pronoun</td>
 <td align="right">-0.53</td>
 <td align="right">0.37</td>
-<td align="right">0.36</td>
+<td align="right">36</td>
 </tr>
 </tbody>
 </table>
@@ -3681,7 +3693,7 @@ add_elm_results &lt;- data.frame(factor_group = &quot;Additional elements&quot;,
                               logit = add_elm_fws_logit,
                               fw = add_elm_fws_prob) %&gt;%
   arrange(-fw) %&gt;%
-  mutate(range = max(fw)-min(fw))
+  mutate(range = round((max(fw)-min(fw))*100, digits = 0))
 
 # inspect results
 add_elm_results %&gt;%
@@ -3702,14 +3714,14 @@ add_elm_results %&gt;%
 <td align="left">Nothing</td>
 <td align="right">0.45</td>
 <td align="right">0.61</td>
-<td align="right">0.22</td>
+<td align="right">22</td>
 </tr>
 <tr class="even">
 <td align="left">Additional elements</td>
 <td align="left">Something</td>
 <td align="right">-0.45</td>
 <td align="right">0.39</td>
-<td align="right">0.22</td>
+<td align="right">22</td>
 </tr>
 </tbody>
 </table>
@@ -3730,7 +3742,7 @@ sub_subj_results &lt;- data.frame(factor_group = &quot;Complement Clause Subject
                               logit = sub_subj_fws_logit,
                               fw = sub_subj_fws_prob) %&gt;%
   arrange(-fw) %&gt;%
-  mutate(range = max(fw)-min(fw))
+  mutate(range = round((max(fw)-min(fw))*100, digits = 0))
 
 # inspect results
 sub_subj_results %&gt;%
@@ -3751,14 +3763,14 @@ sub_subj_results %&gt;%
 <td align="left">Personal Pronoun</td>
 <td align="right">0.29</td>
 <td align="right">0.57</td>
-<td align="right">0.14</td>
+<td align="right">14</td>
 </tr>
 <tr class="even">
 <td align="left">Complement Clause Subject</td>
 <td align="left">Other</td>
 <td align="right">-0.29</td>
 <td align="right">0.43</td>
-<td align="right">0.14</td>
+<td align="right">14</td>
 </tr>
 </tbody>
 </table>
@@ -3779,7 +3791,7 @@ int_mat_results &lt;- data.frame(factor_group = &quot;Intervening material&quot;
                               logit = int_mat_fws_logit,
                               fw = int_mat_fws_prob) %&gt;%
   arrange(-fw) %&gt;%
-  mutate(range = max(fw)-min(fw))
+  mutate(range = round((max(fw)-min(fw))*100, digits = 0))
 
 # inspect results
 int_mat_results %&gt;%
@@ -3800,14 +3812,14 @@ int_mat_results %&gt;%
 <td align="left">None</td>
 <td align="right">0.51</td>
 <td align="right">0.62</td>
-<td align="right">0.25</td>
+<td align="right">25</td>
 </tr>
 <tr class="even">
 <td align="left">Intervening material</td>
 <td align="left">Some</td>
 <td align="right">-0.51</td>
 <td align="right">0.38</td>
-<td align="right">0.25</td>
+<td align="right">25</td>
 </tr>
 </tbody>
 </table>
@@ -3828,7 +3840,7 @@ tense_results &lt;- data.frame(factor_group = &quot;Verb tense&quot;,
                               logit = tense_fws_logit,
                               fw = tense_fws_prob) %&gt;%
   arrange(-fw) %&gt;%
-  mutate(range = max(fw)-min(fw))
+  mutate(range = round((max(fw)-min(fw))*100, digits = 0))
 
 # inspect results
 tense_results %&gt;%
@@ -3849,14 +3861,14 @@ tense_results %&gt;%
 <td align="left">Present</td>
 <td align="right">0.39</td>
 <td align="right">0.6</td>
-<td align="right">0.19</td>
+<td align="right">19</td>
 </tr>
 <tr class="even">
 <td align="left">Verb tense</td>
 <td align="left">Past</td>
 <td align="right">-0.39</td>
 <td align="right">0.4</td>
-<td align="right">0.19</td>
+<td align="right">19</td>
 </tr>
 </tbody>
 </table>
@@ -3888,109 +3900,109 @@ all_linguistic_results </code></pre>
 <td align="left">Think</td>
 <td align="right">1.15</td>
 <td align="right">0.76</td>
-<td align="right">0.44</td>
+<td align="right">44</td>
 </tr>
 <tr class="even">
 <td align="left">Lexical verb</td>
 <td align="left">Say</td>
 <td align="right">0.26</td>
 <td align="right">0.57</td>
-<td align="right">0.44</td>
+<td align="right">44</td>
 </tr>
 <tr class="odd">
 <td align="left">Lexical verb</td>
 <td align="left">Know</td>
 <td align="right">-0.64</td>
 <td align="right">0.35</td>
-<td align="right">0.44</td>
+<td align="right">44</td>
 </tr>
 <tr class="even">
 <td align="left">Lexical verb</td>
 <td align="left">OTHER</td>
 <td align="right">-0.77</td>
 <td align="right">0.32</td>
-<td align="right">0.44</td>
+<td align="right">44</td>
 </tr>
 <tr class="odd">
 <td align="left">Matrix subject</td>
 <td align="left">First Person Singular</td>
 <td align="right">0.98</td>
 <td align="right">0.73</td>
-<td align="right">0.36</td>
+<td align="right">36</td>
 </tr>
 <tr class="even">
 <td align="left">Matrix subject</td>
 <td align="left">Noun Phrase</td>
 <td align="right">-0.45</td>
 <td align="right">0.39</td>
-<td align="right">0.36</td>
+<td align="right">36</td>
 </tr>
 <tr class="odd">
 <td align="left">Matrix subject</td>
 <td align="left">Other Pronoun</td>
 <td align="right">-0.53</td>
 <td align="right">0.37</td>
-<td align="right">0.36</td>
+<td align="right">36</td>
 </tr>
 <tr class="even">
 <td align="left">Intervening material</td>
 <td align="left">None</td>
 <td align="right">0.51</td>
 <td align="right">0.62</td>
-<td align="right">0.25</td>
+<td align="right">25</td>
 </tr>
 <tr class="odd">
 <td align="left">Intervening material</td>
 <td align="left">Some</td>
 <td align="right">-0.51</td>
 <td align="right">0.38</td>
-<td align="right">0.25</td>
+<td align="right">25</td>
 </tr>
 <tr class="even">
 <td align="left">Additional elements</td>
 <td align="left">Nothing</td>
 <td align="right">0.45</td>
 <td align="right">0.61</td>
-<td align="right">0.22</td>
+<td align="right">22</td>
 </tr>
 <tr class="odd">
 <td align="left">Additional elements</td>
 <td align="left">Something</td>
 <td align="right">-0.45</td>
 <td align="right">0.39</td>
-<td align="right">0.22</td>
+<td align="right">22</td>
 </tr>
 <tr class="even">
 <td align="left">Verb tense</td>
 <td align="left">Present</td>
 <td align="right">0.39</td>
 <td align="right">0.60</td>
-<td align="right">0.19</td>
+<td align="right">19</td>
 </tr>
 <tr class="odd">
 <td align="left">Verb tense</td>
 <td align="left">Past</td>
 <td align="right">-0.39</td>
 <td align="right">0.40</td>
-<td align="right">0.19</td>
+<td align="right">19</td>
 </tr>
 <tr class="even">
 <td align="left">Complement Clause Subject</td>
 <td align="left">Personal Pronoun</td>
 <td align="right">0.29</td>
 <td align="right">0.57</td>
-<td align="right">0.14</td>
+<td align="right">14</td>
 </tr>
 <tr class="odd">
 <td align="left">Complement Clause Subject</td>
 <td align="left">Other</td>
 <td align="right">-0.29</td>
 <td align="right">0.43</td>
-<td align="right">0.14</td>
+<td align="right">14</td>
 </tr>
 </tbody>
 </table>
-<p>Table <a href="#tab:tab10">5.9</a> shows all factor weights from our logistic regression with sum contrasts of the linguistic factors conditioning <em>that omission</em> in our data.</p>
+<p>Table <a href="#tab:tab10">5.9</a> shows all factor weights from our logistic regression with sum contrasts of the linguistic factors conditioning <em>that omission</em> in our data. For a complete discussion of these results, please consult chapter 5 (<em>Quantitative Analysis</em>) of Tagliamonte’s <em>Variationist Sociolinguistics</em> book <span class="citation">(Tagliamonte 2012)</span>. For example, <em>lexical verb in matrix clause</em> is the factor group that most constrains <em>that omission</em> in complement clauses (i.e., <em>lexical verb</em> is the factor group with the largest <em>range</em> in its factor weights). The lexical verb <em>think</em> favors <em>that omission</em> with a factor weight of 0.76 and the lexical verb <em>know</em> favors <em>that expressed</em> with a factor weight of 0.35. Remember that our community mean is used as a reference for these factor weights (i.e., our community overall behavior is our .50 weight). When members of this community use a complement clause controlled by <em>think</em> they are more likely to omit <em>that</em> (compared to general <em>that</em> complementizer omission). When they use a complement clause controlled by <em>know</em> they are more likely to express <em>that</em> (compared to general <em>that</em> complementizer expression).</p>
 <p>I highly recommend reporting information about <span class="math inline">\(p\)</span> values and confidence intervals, but that’s a topic for another post. Also out of the scope of this post is the issue of interactions, and how much statistical power is needed to include interactions in our regression modeling.</p>
 </div>
 </div>
